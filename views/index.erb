@@ -1,2 +1,10 @@
 <img src='http://bit.ly/1eze8aE' style='border: 3px dashed red'/>
-<h1>My name is <%=@cat_name_logic%></h1>
+
+<% if @cat_name_logic && @cat_name_logic.length >= 1 %>
+<h1>My name is <%= @cat_name_logic %></h1>
+<% else %>
+<form action="/named-cat" method="get">
+  Name: <input type="text" name="name"><br>
+  <input type="submit" value="Submit">
+</form>
+<% end %>
